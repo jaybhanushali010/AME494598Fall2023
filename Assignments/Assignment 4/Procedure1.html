@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Step by Step Guide</title>
+    <style>
+        /* Add CSS for spacing between list items */
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Instructions for Setting up an AWS EC2 Instance</h1>
+
+    <ol>
+        <li>Go to Sandbox (AWS Dashboard, link provided by the professor), Start AWS Lab, Click on Launch Instance</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img1.png" alt="">
+
+        <li>Select Ubuntu and AMI version 20.04 as shown in the below screenshot.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img2.png" alt="">
+
+        <li>Don't change the Architecture & Instance type, keep it as it is as per the below screenshot.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img3.png" alt="">
+
+        <li>Keep everything the same and only change the configure storage to 28 and click on Launch Instance.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img4.png" alt="">
+
+        <li>Click on (i-06b8cf85d5b8a9b84)</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img5.png" alt="">
+
+        <li>Check mark Oct3AME (Instance Name) and go to Security.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img6.png" alt="">
+
+        <li>Then Click on Inbound Rules and select Edit Inbound Rules.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img7.png" alt="">
+
+        <li>Modify the Inbound Rules as per below screenshot.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img8.png" alt="">
+
+        <li>Go back to the previous page and click on Connect.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img9.png" alt="">
+
+        <li>Once this window pops up, Click on Connect.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img10.png" alt="">
+
+        <li>Once the EC2 instance is open, Go to Professors repository and click on the link (Install Node/Mongo on EC2)</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img11.png" alt="">
+
+        <li>Copy the “Curl | bash” and paste in the EC2 command line.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img12.png" alt="">
+
+        <li>Paste the entire “Curl -s … | bash” here in the Instance command line as shown below.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img13.png" alt="">
+
+        <li>Once the installation is complete it will show like this.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img14.png" alt="">
+
+        <li>Once the installation is completed run this command: sudo nano /etc/mongod.conf (Change the bind IP to 0.0.0.0, Port should be 27017)</li>
+
+        <li>After that we run this command: sudo service mongod start to start the mongod.</li>
+
+        <li>Then run this code: sudo service mongod status to check the status. It should show actively running if the service is started successfully.</li>
+
+        <li>After this, we will have to install mongoskin and mongodb using the following commands: sudo npm install mongoskin@2 and udo npm install mongodb@2.2</li>
+
+        <li>Once both of the above are installed, then we will run the server using this command: node serverwithdb.js</li>
+
+        <li>Make sure that the port on EC2 and in the Arduino code is the same. If not, then change it accordingly. Below I changed the port from 1234 to 8080 using this command: sudo nano serverwithdb.js (Changed the port to 8080 & the bind IP to 0.0.0.0 if needed)</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img15.png" alt="">
+
+        <li>Go to a new tab in your browser and type http://18.212.152.139:8080/index.html to open the window.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img16.png" alt="">
+
+        <li>Make sure you use the same IP address in the MongoDB compass as well and connect.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img17.png" alt="">
+
+        <li>Click on refresh and you will see sensorData, once you click on it you will be able to see the data.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img18.png" alt="">
+
+        <li>This is what you need: HTTP Response code: 200. If you dont get this then you have made some mistake and won't be able to open index.html file in the browser.</li>
+        <img src="file:///C:/Users/jbhanus1/Desktop/Fall%202023/AME%20598/Assignments/Assignment%204/img19.png" alt="">
+    </ol>
+
+    <h2>Commands Executed on EC2 Instance</h2>
+    <pre>
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ sudo nano /etc/mongod.conf (Change the bind IP to 0.0.0.0, Port should be 27017)
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ ls
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ sudo service mongod start
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ sudo service mongod status
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ node serverwithdb.js
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ sudo npm install mongoskin@2
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ node serverwithdb.js 
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ sudo npm install mongodb@2.2 
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ node serverwithdb.js
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ sudo nano serverwithdb.js (Changed the port & the bind IP to 0.0.0.0 if needed)
+        ubuntu@ip-172-31-37-153:~/ame498-598Fall2023/watchSensors/captureDataServer-TempHum$ node serverwithdb.js
+    </pre>
+
+</body>
+</html>
+
+
+
+
+
