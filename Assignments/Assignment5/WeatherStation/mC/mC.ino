@@ -20,7 +20,7 @@ unsigned long lastTime = 0;
 // Timer set to 10 minutes (600000)
 //unsigned long timerDelay = 600000;
 // Set timer to 5 seconds (5000)
-unsigned long timerDelay = 300;
+unsigned long timerDelay = 5000;
 
 String response;
 
@@ -57,6 +57,7 @@ String httpGETRequest(const char* serverName) {
 
   return payload;
 }
+unsigned long previousMillis = 0;  // Initialize the previous time
 
 void setup() {
   Serial.begin(115200);
@@ -82,10 +83,15 @@ void setup() {
   Serial.println("Timer set to 5 seconds (timerDelay variable), it will take 5 seconds before publishing the first reading.");
 
 
-
 }
 
 void loop() {
+  unsigned long currentMillis = millis();  // Get the current time
+
+  // Check if the specified delay time has passed
+  if (currentMillis - previousMillis >= timerDelay) {
+    // Update the previous time for the next comparison
+    previousMillis = currentMillis;
   // start working...
   Serial.println("=================================");
   Serial.println("Sample DHT11...");
@@ -117,5 +123,6 @@ void loop() {
 
 
   // DHT11 sampling rate is 1HZ.
-  delay(5000);
+  //delay(5000);
+  }
 }
