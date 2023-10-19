@@ -21,6 +21,7 @@ unsigned long lastTime = 0;
 //unsigned long timerDelay = 600000;
 // Set timer to 5 seconds (5000)
 unsigned long timerDelay = 5000;
+unsigned long loopTime = 0;
 
 String response;
 
@@ -90,7 +91,7 @@ void loop() {
   unsigned long currentMillis = millis();  // Get the current time
 
   // Check if the specified delay time has passed
-  if (currentMillis - previousMillis >= timerDelay) {
+  if (currentMillis - previousMillis >= timerDelay - loopTime) {
     // Update the previous time for the next comparison
     previousMillis = currentMillis;
   // start working...
