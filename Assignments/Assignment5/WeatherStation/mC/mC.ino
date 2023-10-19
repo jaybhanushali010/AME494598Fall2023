@@ -12,7 +12,7 @@ const char* ssid = "OnePlus 7T";
 const char* password = "9930046480";
 
 //Your Domain name with URL path or IP address with path
-const char* serverName = "http://54.92.208.149/setValue";
+const char* serverName = "http://54.205.186.128:8080/setValue";
 
 // the following variables are unsigned longs because the time, measured in
 // milliseconds, will quickly become a bigger number than can be stored in an int.
@@ -86,6 +86,7 @@ void setup() {
 }
 
 void loop() {
+  unsigned long startTime = millis(); // Record the start time
   unsigned long currentMillis = millis();  // Get the current time
 
   // Check if the specified delay time has passed
@@ -119,6 +120,16 @@ void loop() {
       Serial.println(url);       
       response = httpGETRequest(url.c_str());
       Serial.println(response);
+
+      unsigned long endTime = millis(); // Record the end time
+
+      // Calculate the time taken for the entire loop
+      unsigned long loopTime = endTime - startTime;
+
+      // Print the time taken for the entire loop
+      Serial.print("http send delay time: ");
+      Serial.print(loopTime);
+      Serial.println("milliseconds");
 
 
 
