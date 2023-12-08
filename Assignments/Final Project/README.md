@@ -25,14 +25,14 @@ While the current version addresses key aspects of smart parking, future enhance
 We would like to express our gratitude to [mention any specific contributors or organizations], whose support and expertise played a crucial role in the development of this smart parking solution. Their contributions have been invaluable in overcoming challenges and achieving project milestones.
  -->
 
- # Smart Parking System
+ # SmartPark – IoT based Parking Solution!!
 
-![Smart Parking Image](url_to_your_image)
+![Smart Parking Image](https://cybersnowden.com/wp-content/uploads/2023/04/SMART-Parking.png)
 
 ## **1. Introduction**
 Parking inefficiencies in urban areas have long been a concern, leading to wasted time, fuel, and increased stress. In response, this project proposes a smart parking solution utilizing Internet of Things (IoT) technology and AWS IoT services. The system aims to provide real-time updates on parking spot availability through a user-friendly interface, enhancing the overall parking experience.
 
-[Watch the Video](https://youtu.be/nvsWNQ9rO-Y?feature=shared)
+Project Demo Video URL: 'https://youtu.be/nvsWNQ9rO-Y?feature=shared'
 
 ## **2. Features**
 - **Real-Time Parking Spot Detection:** Utilizing computer vision techniques for dynamic parking spot analysis.
