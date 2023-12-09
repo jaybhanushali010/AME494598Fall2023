@@ -26,5 +26,5 @@ While the current version addresses key aspects of smart parking, future enhance
 - **Integration:** Investigate compatibility with other IoT devices and smart city infrastructure.
 
 ## **5. Acknowledgment**
-We would like to express our gratitude to [mention any specific contributors or organizations], whose support and expertise played a crucial role in the development of this smart parking solution. Their contributions have been invaluable in overcoming challenges and achieving project milestones.
+Special thanks to Professor Tejaswi Linge Gowda and the AME 598 course for their guidance and insights throughout the development of this project.
 
